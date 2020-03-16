@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Link } from "react-router-dom";
+import { Navbar, Nav, NavItem } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 import './App.css';
+import Routes from "./Routes";
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+      <Navbar fluid collapseOnSelect>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <Link to="/">Ramblerfy</Link>
+          </Navbar.Brand>
+        </Navbar.Header>
+        <Nav>
+          <LinkContainer to="/login">
+            <NavItem>Login</NavItem>
+          </LinkContainer>
+          <LinkContainer to="/signup">
+            <NavItem>Signup</NavItem>
+          </LinkContainer>
+        </Nav>
+      </Navbar>
+      <Routes />
     </div>
   );
 }
