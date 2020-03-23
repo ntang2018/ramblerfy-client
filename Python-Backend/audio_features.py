@@ -24,27 +24,27 @@ def main(sp, api_key):
 
     track_id = track_features[0]["uri"]
     track_info = sp.track(track_id)
-
     uri = track_info["uri"]
     spotify_url = track_info["external_urls"]["spotify"]
     # 3 different sizes for images
     cover_image_url = track_info["album"]["images"][1]["url"]
     track_name = track_info["name"]
     track_artist = track_info["artists"][0]["name"]
-
+    track_album = track_info["album"]["name"]
     tract_audio_features_dict = {
-        "uri": uri,
-        "spotify_url": spotify_url,
-        "cover_image_url": cover_image_url,
-        "track_name": track_name,
-        "track_artist": track_artist,
-        "duration_ms": duration_ms,
-        "loudness": loudness,
-        "tempo": tempo,
-        "key": key,
-        "danceability": danceability,
-        "energy": energy,
-        "valence:": valence
+                "uri": uri,
+                "spotify_url": spotify_url,
+                "cover_image_url": cover_image_url,
+                "track_name": track_name,
+                "track_artist": track_artist,
+                "track_album": track_album,
+                "duration_ms": duration_ms,
+                "loudness": loudness,
+                "tempo": tempo,
+                "key": key,
+                "danceability": danceability,
+                "energy": energy,
+                "valence:": valence
     }
     track_audio_features_wrapper['tracks'].append(tract_audio_features_dict)
     print("Track is " + track_name)
